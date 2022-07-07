@@ -12,7 +12,7 @@ namespace Business.Abstract
         List<TaskModel> GetAll();
         void Add(TaskModel taskModel);
         TaskModel GetById(int id);
-        void Delete(int id);
+        void Delete(TaskModel taskModel);
         void Update(TaskModel taskModel);
     }
 }
