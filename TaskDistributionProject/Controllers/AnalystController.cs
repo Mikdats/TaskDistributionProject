@@ -1,11 +1,13 @@
 ﻿using Business.Abstract;
 using DataAccess.Concrete.Context;
 using Entities.DTOs;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace TaskDistributionProject.Controllers
 {
+    [Authorize(Roles ="Analyst")]
     public class AnalystController : Controller
     {
         TaskContext _taskContext;

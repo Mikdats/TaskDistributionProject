@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace TaskDistributionProject.Controllers
 {
-    //[Authorize(Roles ="Analyst")]
+    [Authorize(Roles ="Admin")]
     public class AdminController : Controller
     {
         private readonly IUserService _userService;

@@ -60,11 +60,15 @@ namespace TaskDistributionProject.Controllers
 
                     if (user.Role.RoleName == "Analyst")
                     {
-                        return Redirect("~/User/GetAll");
+                        return Redirect("~/Analyst/AllTaskForAnalyst");
                     }
-                    else if (user.Role.RoleName == "User")
+                    else if (user.Role.RoleName == "Personnel")
                     {
-                        return RedirectToAction("GetAll", "Recipe");
+                        return RedirectToAction("GetAll", "Task");
+                    }
+                    else if (user.Role.RoleName == "Admin")
+                    {
+                        return RedirectToAction("Index", "Admin");
                     }
                     else
                     {
@@ -78,7 +82,7 @@ namespace TaskDistributionProject.Controllers
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync();
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "User");
         }
     }
 }

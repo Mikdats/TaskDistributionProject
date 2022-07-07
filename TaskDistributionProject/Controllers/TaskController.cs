@@ -1,10 +1,12 @@
 ﻿using Business.Abstract;
 using DataAccess.Concrete.Context;
 using Entities.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace TaskDistributionProject.Controllers
 {
+    [Authorize]
     public class TaskController : Controller
     {
         private readonly ITaskModelService _taskModelService;
