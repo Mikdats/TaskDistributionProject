@@ -1,0 +1,63 @@
+﻿@using Entities.Concrete
+@model List<User>
+@{
+    ViewData["Title"] = "GetAll";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    <br />
+    <h3>Kullanıcı Listesi</h3>
+    <table class="table table-striped table-bordered" id="myTable">
+        <thead>
+            <tr>               
+                <th>E-Posta</th>               
+                <th>Şifre</th>                                                       
+                <th>Rol Id</th>
+                <th>Düzenle</th>
+                <th>Sil</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>             
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>                          
+                <td>
+                    @Html.DisplayFor(modelItem => item.Password)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RoleId)
+                </td>                          
+                <td>
+                    <a asp-action="Update" asp-route-id="@item.UserId" class="btn btn-success btn-sm"><i class="bi bi-pencil"></i> Düzenle</a>
+
+                </td>
+                <td>
+                    <a asp-action="Delete" asp-route-id="@item.UserId" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i> Sil</a>
+                </td>
+
+            </tr>
+            }
+        </tbody>
+    </table>
+    <a class="btn btn-primary" href="~/Admin/Add" role="button">Yeni Kullanıcı Ekle</a>
+   
+   
+</div>
+
+ @section Scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#myTable').DataTable({
+                language: {
+                    url: 'https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Turkish.json',
+                },
+            });
+        });
+    </script>
+}
+

@@ -1,0 +1,43 @@
+﻿@using Entities.Concrete
+@model User
+@{
+    ViewData["Title"] = "Add";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+   <br/>
+   <div class= "container" >
+        <div class= "row" >
+             <div class= "col-2" >
+              </div>
+              <div class= "col-8" >
+                   <h2> Yeni Kullanıcı Ekle</h2>
+                @using (Html.BeginForm("Add", "Admin", FormMethod.Post))
+                {
+                    @Html.Label("E-Posta")
+                    @Html.TextBoxFor(b => b.Email, new { @class = "form-control" })
+                    <label class= "text-danger" > @Html.ValidationMessageFor(b => b.Email) </label>
+                     <br/>                  
+                    @Html.Label("Şifre")
+                    @Html.TextBoxFor(b => b.Password, new { @class = "form-control" })
+                    <label class= "text-danger" > @Html.ValidationMessageFor(b => b.Password) </label>
+                     <br/>
+                    @Html.Label("Rol Türü")
+                    @Html.DropDownListFor(b => b.RoleId, (List<SelectListItem>)ViewBag.Role, new { @class = "form-control" })
+                    <label class= "text-danger" > @Html.ValidationMessageFor(b => b.RoleId) </label>
+                     <br/>
+                    <button class= "btn btn-success" > Kaydet </button>              
+                    <input type = "reset" value = "Temizle" class= "btn btn-danger"/>
+                    <a class="btn btn-primary" href="~/Admin/GetAll" role="button">Geri Dön</a>
+                }
+        </div>
+        <div class= "col-2">
+         </div>
+     </div>
+ </div>
+
+
+
+
+
+

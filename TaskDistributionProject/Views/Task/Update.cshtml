@@ -1,0 +1,32 @@
+﻿@using Entities.Concrete
+@model TaskModel
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+        <h4 class="text-success">Düzenleme Sayfası</h4>
+        <br />
+        <form asp-action="Update" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="TaskId" />
+            <div class="form-group">
+                Task Adı
+                <input asp-for="TaskName" class="form-control" />
+                <span asp-validation-for="TaskName" class="text-danger"></span>
+            </div>         
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Kaydet " class="btn btn-success" />              
+                <a asp-action="GetAll" class="btn btn-primary">Task Listesine Dön</a>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-4">
+    </div>
+</div>
+

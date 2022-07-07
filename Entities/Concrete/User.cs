@@ -12,8 +12,8 @@ namespace Entities.Concrete
     {
         public int UserId { get; set; }
 
-        [Required(ErrorMessage ="Kullanıcı adı kısmı gereklidir!")]
-        public string UserName { get; set; }
+        [Required(ErrorMessage ="E-Posta  kısmı gereklidir!")]
+        public string Email { get; set; }
 
         [Required(ErrorMessage = "Şifre kısmı gereklidir!")]
         public string Password { get; set; }

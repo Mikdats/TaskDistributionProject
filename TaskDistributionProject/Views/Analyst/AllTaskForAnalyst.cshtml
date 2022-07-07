@@ -1,0 +1,52 @@
+﻿@using Entities.DTOs
+@model List<AnalystViewModel>
+@{
+    ViewData["Title"] = "AllTaskForAnalyst";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <h2>Task Listesi</h2>
+    <table class="table table-striped table-bordered" id="myTable">
+        <thead>
+            <tr>
+                             
+                <th>Task</th>                                                                       
+                <th>Zorluk Derecesi</th>
+                <th>Değerlendirme</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TaskName)
+                    </td>                                                      
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DifficultyName)
+                    </td>
+                    <td>
+                        <a asp-action="TaskForAnalyst" asp-route-id="@item.TaskId" class="btn btn-success btn-sm"><i class="bi bi-pencil"></i>Değerlendir</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+        <a class="btn btn-danger" href="~/UserManagement/Index" role="button">Geri Dön</a>
+</div>
+
+@section Scripts{
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#myTable').DataTable({
+            language: {
+                url: 'https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Turkish.json',
+            },
+        });
+    });
+</script>
+}
+
+
+
+

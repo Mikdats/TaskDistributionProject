@@ -1,0 +1,33 @@
+﻿@using Entities.Concrete
+@model TaskModel
+@{
+    ViewData["Title"] = "Add";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+   <br/>
+   <div class= "container" >
+        <div class= "row" >
+             <div class= "col-2" >
+              </div>
+              <div class= "col-8" >
+                   <h2> Yeni Task Ekle</h2>
+                @using (Html.BeginForm("Add", "Task", FormMethod.Post))
+                {
+                      @Html.Label("Task Adı")
+                      @Html.TextBoxFor(b => b.TaskName, new { @class = "form-control" })
+                      <label class= "text-danger" > @Html.ValidationMessageFor(b => b.TaskName) </label>
+                      <br/>                                                                                                                                
+                      <button class= "btn btn-success" > Kaydet </button>              
+                      <input type = "reset" value = "Temizle" class= "btn btn-danger"/>
+                      <a class="btn btn-primary" href="~/Task/GetAll" role="button">Geri Dön</a>
+                }
+        </div>
+        <div class= "col-2">
+         </div>
+     </div>
+ </div>
+
+
+
+

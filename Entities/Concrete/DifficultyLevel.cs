@@ -8,12 +8,10 @@ using System.Threading.Tasks;
 
 namespace Entities.Concrete
 {
-    public class TaskModel:IEntity
+    public class DifficultyLevel:IEntity
     {
         [Key]
-        public int TaskId { get; set; }
-        public string TaskName { get; set; }      
-        public int DeveloperId { get; set; }
         public int DifficultyId { get; set; }
+        public string DifficultyName { get; set; }
     }
 }
