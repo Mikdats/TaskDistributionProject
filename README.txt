@@ -2,7 +2,7 @@ TASK DISTRIBUTION SYSTEM
 -Sistemde 3 tane rol oluşturuldu.
     --Personel rolü sadece task ekleyebilmektedir.
     --Analist rolü eklenen taskları değerlendirip, taskın zorluk derecesini belirlemektedir.
-    --Admin kullanıcı ekleme ve task atama işlemi yapabilir.
+    --Admin rolü kullanıcı ekleme ve task atama işlemi yapabilir.
 
 İŞLEYİŞ
 1-Personel, giriş yaptıktan sonra üst panelde bulunan kullanıcı task ekleme ekranına  yönlendirilir.Burada task ekleme sayfasından task ekleyebilmektedir.
