@@ -4,7 +4,6 @@
     ViewData["Title"] = "Add";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
    <br/>
    <div class= "container" >
         <div class= "row" >
@@ -13,7 +12,7 @@
               <div class= "col-8" >
                    <h2> Yeni Kullanıcı Ekle</h2>
                 @using (Html.BeginForm("Add", "Admin", FormMethod.Post))
-                {
+                {                  
                     @Html.Label("E-Posta")
                     @Html.TextBoxFor(b => b.Email, new { @class = "form-control" })
                     <label class= "text-danger" > @Html.ValidationMessageFor(b => b.Email) </label>
@@ -35,9 +34,3 @@
          </div>
      </div>
  </div>
-
-
-
-
-
-

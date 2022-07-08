@@ -1,0 +1,56 @@
+﻿@using Entities.DTOs
+@model List<AdminViewModel>
+@{
+    ViewData["Title"] = "Assignment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <h2>Task Listesi</h2>
+    <table class="table table-striped table-bordered" id="myTable">
+        <thead>
+            <tr>
+                             
+                <th>Task</th>                                                                       
+                <th>Zorluk Derecesi</th>
+                <th>Sorumlu Yazılımcı</th>
+                <th>Atama İşlemi</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TaskName)
+                    </td>                                                      
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DifficultyName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DeveloperName)
+                    </td>
+                    <td>
+                        <a asp-action="AddAssignment" asp-route-id="@item.TaskId" class="btn btn-success btn-sm"><i class="bi bi-pencil"></i>Atama İşlemini Yap</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+        
+</div>
+
+@section Scripts{
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#myTable').DataTable({
+            language: {
+                url: 'https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Turkish.json',
+            },
+        });
+    });
+</script>
+}
+
+
+
+

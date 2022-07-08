@@ -32,7 +32,6 @@ namespace Business.Concrete
         {
             return _taskModelDal.GetAll();  
         }
-
         public TaskModel GetById(int id)
         {
             return _taskModelDal.Get(c=>c.TaskId==id);

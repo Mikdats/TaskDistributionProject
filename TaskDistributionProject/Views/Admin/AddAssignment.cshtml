@@ -1,0 +1,39 @@
+﻿@using Entities.DTOs
+@model AdminViewModel
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+        <h4 class="text-success">Düzenleme Sayfası</h4>
+        @using (Html.BeginForm("AddAssignment", "Admin", FormMethod.Post))
+            {
+                
+                @Html.HiddenFor(b => b.TaskId, new { @class = "form-control" })                          
+                @Html.HiddenFor(b => b.DifficultyId, new { @class = "form-control" })                          
+                
+                @Html.Label("Task")
+                @Html.TextBoxFor(b => b.TaskName, new { @class = "form-control" })
+                <label class="text-danger">@Html.ValidationMessageFor(b => b.TaskName)</label>
+                <br />    
+                @Html.Label("Zorluk Seviyesi")
+                @Html.TextBoxFor(b => b.DifficultyName, new { @class = "form-control" })
+                <label class="text-danger">@Html.ValidationMessageFor(b => b.DifficultyName)</label>
+                <br />   
+               @* @Html.Label("Yazılımcılar")
+                @Html.DropDownListFor(x=>x.DifficultyId,(List<SelectListItem>)ViewBag.Adminlist,new{@class="form-control"})               
+                <br />*@                        
+       
+                <button class="btn btn-success">Kaydet</button> 
+
+            }         
+    </div>
+    <div class="col-md-4">
+    </div>
+</div>
+
+
