@@ -138,5 +138,37 @@ namespace TaskDistributionProject.Controllers
             _taskContext.SaveChanges();
             return RedirectToAction("AllAssignment", "Admin");
         }
+        //if (res.Count == 0)
+        //{
+        //    var result = _taskContext.Developers.Where(c => c.DeveloperId == Randomnumber).SingleOrDefault();
+
+        //    adminViewModel.DeveloperId = result.DeveloperId;
+        //    taskModel.TaskId = adminViewModel.TaskId;
+        //    taskModel.TaskName = adminViewModel.TaskName;
+        //    taskModel.DifficultyId = adminViewModel.DifficultyId;
+        //    taskModel.DeveloperId = adminViewModel.DeveloperId;
+        //}
+        //else
+        //{
+        //    var total = _taskContext.TaskModels.Where(c => c.DeveloperId == Randomnumber).ToList();
+        //    int totalCount = total.Count();
+        //    int min=0;
+        //    for (int i = 1; i < 9; i++)
+        //    {
+        //        var result = _taskContext.TaskModels.Where(x => x.DeveloperId == i).ToList();
+        //        int resultCount = result.Count();
+        //        var ress = _taskContext.TaskModels.Where(x => x.DeveloperId == min).ToList();
+        //        if (totalCount >= resultCount)
+        //        {
+        //            total = _taskContext.TaskModels.Where(c => c.DeveloperId == i).ToList();
+        //            totalCount = total.Count;
+        //        }
+        //        else
+        //        {
+        //            min = Randomnumber;
+        //            break;
+        //        }
+
+        //    }
     }
 }
