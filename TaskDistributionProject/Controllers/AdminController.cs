@@ -134,36 +134,8 @@ namespace TaskDistributionProject.Controllers
             taskModel.TaskName = adminViewModel.TaskName;
             taskModel.DifficultyId = adminViewModel.DifficultyId;
             taskModel.DeveloperId = adminViewModel.DeveloperId;
-
-
-            foreach (var item in taskManagerList.Where(tm=>tm.DeveloperId==adminViewModel.DeveloperId))
-            {
-                if (item.Tasks.Count<8)
-                {
-                    foreach (var itemTask in item.Tasks)
-                    {
-                        var tResult = _taskContext.TaskModels.Where(t=>t.TaskId == adminViewModel.TaskId).SingleOrDefault();
-                        if (tResult.DifficultyId!=itemTask.DifficultyId)
-                        {
-                            tm.DeveloperId = adminViewModel.DeveloperId;
-                            td.DifficultyId = adminViewModel.DifficultyId;
-                            td.TaskId = adminViewModel.TaskId;
-                            tm.Tasks.Add(td);
-                            taskManagerList.Add(tm);
-
-                            _taskContext.TaskModels.Update(taskModel);
-                            _taskContext.SaveChanges();
-                        }
-                    }
-                    
-                }
-            }
-            
-            
-
-            
-            
-                        
+            _taskModelService.Update(taskModel);
+            _taskContext.SaveChanges();
             return RedirectToAction("AllAssignment", "Admin");
         }
     }
